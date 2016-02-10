@@ -5,14 +5,39 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 /**
- * Created by mbp on 10/02/2016.
+ * Created by NWM on 10/02/2016.
  */
-public class MainClass {
+class Person {
+        String name;
+        int age;
 
-    public static void main(String... args) {
-        Stream<String> stream = null;
+        Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
 
-        Path path = Paths.get("paths");
-
+        @Override
+        public String toString() {
+            return name;
+        }
     }
+
+    List<Person> persons =
+            Arrays.asList(
+                    new Person("Nathan", 36),
+                    new Person("Harry", 26),
+                    new Person("Isabell", 56),
+                    new Person("Sally", 76),
+                    new Person("Pauline", 76),
+                    new Person("Peter", 16));
+
+    List<Person> filtered =
+            persons
+                    .stream()
+                    //the lambda expression below will fail and Gradle will act appropriately. 
+                    .filter(p -> p.name.startsWith("P"))
+                    .collect(Collectors.toList());
+
+           System.out.println(filtered);
+
 }
