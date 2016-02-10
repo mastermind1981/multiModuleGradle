@@ -1,0 +1,18 @@
+group 'com.test'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = JavaVersion.VERSION_1_6
+targetCompatibility = JavaVersion.VERSION_1_6
+repositories {
+    mavenCentral()
+}
+compileJava.doFirst {
+    println "source compatibility  " + sourceCompatibility
+    println "target compatibility  " + targetCompatibility
+
+}
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}

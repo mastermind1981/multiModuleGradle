@@ -1,0 +1,5 @@
+rootProject.name = 'Parent'
+include 'child2Java6'
+include 'child1Java8'
+
+
