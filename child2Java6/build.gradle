@@ -11,8 +11,12 @@ repositories {
 compileJava.doFirst {
     println "source compatibility  " + sourceCompatibility
     println "target compatibility  " + targetCompatibility
-
 }
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+task runApp(type: JavaExec) {
+
+    classpath = sourceSets.main.runtimeClasspath
+    main = "com.test.MainClass"
 }
