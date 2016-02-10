@@ -7,4 +7,9 @@ repositories {
     mavenCentral()
 }
 
-
+allprojects {
+    task versioner << {task -> println "Loaded: $task.project.name"}
+}
+subprojects {
+    versioner << {println " - Depends on parent"}
+}
